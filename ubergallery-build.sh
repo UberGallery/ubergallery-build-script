@@ -19,7 +19,7 @@ else
 fi
 
 # Set version info variables
-VERSION=`cat $SOURCEDIR/resources/UberGallery.php | grep "const VERSION" | awk -F \' '{print $(NF-1)}'`
+VERSION=$(cat $SOURCEDIR/resources/UberGallery.php | grep "const VERSION" | awk -F \' '{print $(NF-1)}')
 RELEASENAME=UberGallery-v$VERSION
 FINALDIR=/tmp/$RELEASENAME
 
