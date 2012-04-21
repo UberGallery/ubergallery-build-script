@@ -15,7 +15,7 @@ else
     if [ -d $SOURCEDIR ]; then
         rm $SOURCEDIR
     fi
-    git clone -q git://github.com/UberGallery/UberGallery.git $SOURCEDIR
+    git clone --recursive -q git://github.com/UberGallery/UberGallery.git $SOURCEDIR
 fi
 
 # Set version info variables
@@ -24,8 +24,8 @@ RELEASENAME=UberGallery-v$VERSION
 FINALDIR=/tmp/$RELEASENAME
 
 # Remove all git files
-rm -rf $SOURCEDIR/.git
-find $SOURCEDIR -type f -name .gitignore -exec rm {} \;
+find $SOURCEDIR -type d -name .git -exec rm -rf {} \;
+find $SOURCEDIR -type f -name .gitignore -delete
 
 # Rename source directory to release directory
 if [ -d $FINALDIR ]; then
