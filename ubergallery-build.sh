@@ -24,8 +24,7 @@ RELEASENAME=UberGallery-v$VERSION
 FINALDIR=/tmp/$RELEASENAME
 
 # Remove all git files
-find $SOURCEDIR -type d -name .git -exec rm -rf {} \;
-find $SOURCEDIR -type f -name .gitignore -delete
+find $SOURCEDIR -name ".git*" -exec rm -rf {} \;
 
 # Rename source directory to release directory
 if [ -d $FINALDIR ]; then
